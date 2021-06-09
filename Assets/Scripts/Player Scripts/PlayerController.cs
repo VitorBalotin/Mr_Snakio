@@ -44,10 +44,10 @@ public class PlayerController : MonoBehaviour{
         InitPlayer();
 
         delta_position = new List<Vector3>(){
-            new Vector3(-step_length, 0f), // -x LEFT
-            new Vector3(0f, step_length),  // -y UP
-            new Vector3(step_length, 0f),  // x RIGHT
-            new Vector3(0f, -step_length) // -y DOWN
+            new Vector3(-step_length, 0f),   // -x LEFT
+            new Vector3(0f, 0f, step_length), // z UP
+            new Vector3(step_length, 0f),     // x RIGHT
+            new Vector3(0f, 0f, -step_length)    // -z DOWN
         };
     }
 
