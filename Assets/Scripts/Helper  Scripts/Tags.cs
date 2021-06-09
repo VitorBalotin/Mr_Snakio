@@ -17,9 +17,8 @@ public class Metrics{
 
 // possible player directions
 public enum PlayerDirection{
-    LEFT = 0,
-    UP = 1,
-    RIGHT = 2,
-    DOWN = 3,
-    COUNT = 4
+    WEST = 0,
+    NORTH = 1,
+    EAST = 2,
+    SOUTH = 3
 }

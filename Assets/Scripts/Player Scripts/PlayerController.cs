@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour{
 
     // Initializes the direction that the snake will move
     void SetDirectionRandom(){
-        int dir_random = Random.Range(0, (int)PlayerDirection.COUNT);
+        int dir_random = Random.Range(0, 4);
         direction = (PlayerDirection)dir_random;
     }
 
@@ -82,19 +82,19 @@ public class PlayerController : MonoBehaviour{
         SetDirectionRandom();
         // After it got the initial direction, it changes the snake direction
         switch (direction){
-            case PlayerDirection.RIGHT:
+            case PlayerDirection.EAST:
                 nodes[1].position = nodes[0].position - new Vector3(Metrics.NODE, 0f, 0f);
                 nodes[2].position = nodes[0].position - new Vector3(Metrics.NODE * 2f, 0f, 0f);
                 break;
-            case PlayerDirection.LEFT:
+            case PlayerDirection.WEST:
                 nodes[1].position = nodes[0].position + new Vector3(Metrics.NODE, 0f, 0f);
                 nodes[2].position = nodes[0].position + new Vector3(Metrics.NODE * 2f, 0f, 0f);
                 break;
-            case PlayerDirection.UP:
+            case PlayerDirection.NORTH:
                 nodes[1].position = nodes[0].position - new Vector3(0f, Metrics.NODE, 0f);
                 nodes[2].position = nodes[0].position - new Vector3(0f, Metrics.NODE * 2f, 0f);
                 break;
-            case PlayerDirection.DOWN:
+            case PlayerDirection.SOUTH:
                 nodes[1].position = nodes[0].position + new Vector3(0f, Metrics.NODE, 0f);
                 nodes[2].position = nodes[0].position + new Vector3(0f, Metrics.NODE * 2f, 0f);
                 break;
@@ -104,16 +104,25 @@ public class PlayerController : MonoBehaviour{
     }
 
     void Move(){
-        Vector3 d_position = delta_position[(int)direction];
-        Vector3 parent_position = head_body.position;
-        Vector3 previous_position;
-        main_body.position = main_body.position + d_position;
-        head_body.position = head_body.position + d_position;
+        Vector3 dPosition = delta_position[(int)direction];
+        Vector3 parentPosition = head_body.position;
+        Quaternion parentRotation = Quaternion.Euler(0f, (float)90*(int)direction, 0f);
+        Vector3 previousPosition;
+        Quaternion previousRotation;
 
+        main_body.position = main_body.position + dPosition;
+        head_body.position = head_body.position + dPosition;
+        head_body.rotation = parentRotation;
+        
         for(int i = 1; i < nodes.Count; i++){
-            previous_position = nodes[i].position;
-            nodes[i].position = parent_position;
-            parent_position = previous_position;
+            previousPosition = nodes[i].position;
+            previousRotation = nodes[i].rotation;
+            
+            nodes[i].position = parentPosition;
+            nodes[i].rotation = parentRotation;
+            
+            parentPosition = previousPosition;
+            parentRotation = previousRotation;
         }
         // Validate if it's necessary to create a new node
         // in case a fruit was eaten
@@ -136,10 +145,10 @@ public class PlayerController : MonoBehaviour{
 
     public void SetInputDirection(PlayerDirection dir){
         // Validates if the direction choosen is allowed
-        if(((dir == PlayerDirection.UP && direction == PlayerDirection.DOWN) ||
-           (dir == PlayerDirection.DOWN && direction == PlayerDirection.UP) ||
-           (dir == PlayerDirection.RIGHT && direction == PlayerDirection.LEFT) ||
-           (dir == PlayerDirection.LEFT && direction == PlayerDirection.RIGHT)))
+        if(((dir == PlayerDirection.NORTH && direction == PlayerDirection.SOUTH) ||
+           (dir == PlayerDirection.SOUTH && direction == PlayerDirection.NORTH) ||
+           (dir == PlayerDirection.EAST && direction == PlayerDirection.WEST) ||
+           (dir == PlayerDirection.WEST && direction == PlayerDirection.EAST)))
         {
             return;
         }
