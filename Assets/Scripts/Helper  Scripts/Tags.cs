@@ -20,6 +20,5 @@ public enum PlayerDirection{
     WEST = 0,
     NORTH = 1,
     EAST = 2,
-    SOUTH = 3,
-    COUNT = 4
+    SOUTH = 3
 }

@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour{
 
     // Initializes the direction that the snake will move
     void SetDirectionRandom(){
-        int dir_random = Random.Range(0, (int)PlayerDirection.COUNT);
+        int dir_random = Random.Range(0, 4);
         direction = (PlayerDirection)dir_random;
     }
 
@@ -106,16 +106,23 @@ public class PlayerController : MonoBehaviour{
     void Move(){
         Vector3 dPosition = delta_position[(int)direction];
         Vector3 parentPosition = head_body.position;
+        Quaternion parentRotation = Quaternion.Euler(0f, (float)90*(int)direction, 0f);
         Vector3 previousPosition;
+        Quaternion previousRotation;
+
         main_body.position = main_body.position + dPosition;
         head_body.position = head_body.position + dPosition;
-        head_body.rotation = Quaternion.Euler(0f, (float)90*(int)direction, 0f);
+        head_body.rotation = parentRotation;
         
         for(int i = 1; i < nodes.Count; i++){
             previousPosition = nodes[i].position;
-            nodes[i].rotation = Quaternion.Euler(0f, (float)90*(int)direction, 0f);
+            previousRotation = nodes[i].rotation;
+            
             nodes[i].position = parentPosition;
+            nodes[i].rotation = parentRotation;
+            
             parentPosition = previousPosition;
+            parentRotation = previousRotation;
         }
         // Validate if it's necessary to create a new node
         // in case a fruit was eaten
