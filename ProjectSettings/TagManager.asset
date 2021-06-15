@@ -8,6 +8,8 @@ TagManager:
   - Fruit
   - Bomb
   - Tail
+  - HighscoreContainer
+  - HighscoreEntryTemplate
   layers:
   - Default
   - TransparentFX

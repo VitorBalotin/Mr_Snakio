@@ -13,7 +13,7 @@ public class GameplayController : MonoBehaviour{
     private float y_pos = 0f;
     // Text and counter for the score
     private Text score_text;
-    private int score_count;
+    public int score_count;
 
     void Awake(){
         MakeInstance();
@@ -51,9 +51,13 @@ public class GameplayController : MonoBehaviour{
         Invoke("StartSpawning", 0f);
     }
 
+    public int ReturnScore(){
+        return score_count;
+    }
+
     // Increments the score
     public void IncrementScore(){
         score_count++;
-        score_text.text = "Score: " + score_count;
+        score_text.text = score_count.ToString();
     }
 }
