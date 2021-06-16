@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
@@ -17,28 +15,17 @@ public class CameraFollow : MonoBehaviour {
     private Space offsetPositionSpace = Space.Self;
 
     [SerializeField]
-    private bool lookAt = true;
+    private bool lookAt = false;
 
     private void LateUpdate()
     {
-        // compute position
-        if (offsetPositionSpace == Space.Self)
-        {
+        if (offsetPositionSpace == Space.Self) 
             transform.position = tail.TransformPoint(offsetPosition);
-        }
-        else
-        {
+        else 
             transform.position = tail.position + offsetPosition;
-        }
 
         // compute rotation
-        if (lookAt)
-        {
-            transform.LookAt(head);
-        }
-        else
-        {
-            transform.rotation = tail.rotation;
-        }
+        transform.LookAt(head);
     }
+
 }
