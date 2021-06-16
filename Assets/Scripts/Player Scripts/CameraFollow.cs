@@ -14,18 +14,13 @@ public class CameraFollow : MonoBehaviour {
     [SerializeField]
     private Space offsetPositionSpace = Space.Self;
 
-    [SerializeField]
-    private bool lookAt = false;
-
-    private void LateUpdate()
-    {
-        if (offsetPositionSpace == Space.Self) 
+    private void LateUpdate() {
+        if (offsetPositionSpace == Space.Self) {
             transform.position = tail.TransformPoint(offsetPosition);
-        else 
+        }
+        else {
             transform.position = tail.position + offsetPosition;
-
-        // compute rotation
+        }
         transform.LookAt(head);
     }
-
 }
