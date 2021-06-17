@@ -15,11 +15,11 @@ public class GameplayController : MonoBehaviour{
     private Text score_text;
     private int score_count;
 
-    void Awake(){
+    public void Awake(){
         MakeInstance();
     }
     
-    void Start(){
+    public void Start(){
         score_text = GameObject.Find("Score").GetComponent<Text>();
         Invoke("StartSpawning", 0.5f);
     }

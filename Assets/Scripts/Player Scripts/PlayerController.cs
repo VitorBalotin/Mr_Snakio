@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour{
     // Direction that the snake is moving
     [HideInInspector]
     public PlayerDirection direction;
+    public static PlayerController instance;
 
     // distance that the snake moves
     [HideInInspector]
@@ -28,15 +29,13 @@ public class PlayerController : MonoBehaviour{
 
     // Has the parts of the snake, head, node and tails
     private List<Rigidbody> nodes;
-
     // Main body asset, snake
     private Rigidbody main_body;
     private Rigidbody head_body;
     private Transform tr;
-
     private bool create_node;
 
-    void Awake(){
+    public void Awake(){
         tr = transform;
         main_body = GetComponent<Rigidbody>();
 
