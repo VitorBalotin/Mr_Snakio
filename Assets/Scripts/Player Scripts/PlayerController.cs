@@ -173,9 +173,10 @@ public class PlayerController : MonoBehaviour{
         }
 
         if(target.tag == Tags.WALL || target.tag == Tags.BOMB || target.tag == Tags.TAIL){
-            Debug.Log(GameplayController.instance.score_count);
-            PlayerPrefs.SetInt("ihull", GameplayController.instance.score_count);
-            Debug.Log(PlayerPrefs.GetInt("ihulll"));
+            // HighscoreController.instance.GetSavedScores();
+            // Debug.Log(GameplayController.instance.score_count);
+            // PlayerPrefs.SetInt("ihull", GameplayController.instance.score_count);
+            // Debug.Log(PlayerPrefs.GetInt("ihull"));
             Time.timeScale = 0f;
             AudioManager.instance.PlayDeathSound();
         }

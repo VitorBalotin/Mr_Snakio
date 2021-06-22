@@ -1125,6 +1125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1299229305}
+  - component: {fileID: 1299229306}
   - component: {fileID: 1299229304}
   m_Layer: 0
   m_Name: GameplayController
@@ -1162,6 +1163,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1299229306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299229303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6571b4517dbd68841a522efedb119cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1413355802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1188,6 @@ GameObject:
   - component: {fileID: 1413355804}
   - component: {fileID: 1413355803}
   - component: {fileID: 1413355807}
-  - component: {fileID: 1413355808}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -1279,24 +1291,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause_menu_ui: {fileID: 93055399}
---- !u!114 &1413355808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413355802}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344609a6dc416544a94e2560c8576977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max_scoreboard_entries: 5
-  highscore_holder_transform: {fileID: 774258037}
-  scoreboard_entry_obj: {fileID: 956846448959017308, guid: 382b8e52e752002488634fa773f9f230, type: 3}
-  test_entry_data:
-    entry_name: teste
-    entry_score: 99
 --- !u!1 &1419673969
 GameObject:
   m_ObjectHideFlags: 0

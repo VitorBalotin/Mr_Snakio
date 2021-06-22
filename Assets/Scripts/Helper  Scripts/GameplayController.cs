@@ -51,10 +51,6 @@ public class GameplayController : MonoBehaviour{
         Invoke("StartSpawning", 0f);
     }
 
-    public int ReturnScore(){
-        return score_count;
-    }
-
     // Increments the score
     public void IncrementScore(){
         score_count++;
