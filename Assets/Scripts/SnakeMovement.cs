@@ -6,12 +6,15 @@ public class SnakeMovement : MonoBehaviour
 {
 
     public List<Transform> bodyParts = new List<Transform>();
-
-    public float minDistance = 0.25f;
-    public float speed = 1;
-    public float rotationSpeed = 50;
     public GameObject bodyPrefab;
+    public float minDistance = 0.25f;
     public int beginSize;
+
+    public float speed = 1;
+    public float speedModifier = 2;
+    public float rotationSpeed = 50;
+    public float rotationSpeedModifier = 2;
+    
     private float distance;
     private Transform curBodyPart;
     private Transform prevBodyPart;
@@ -33,13 +36,20 @@ public class SnakeMovement : MonoBehaviour
 
     public void Move()
     {
+        float curSpeed = speed;
+        float curRotationSpeed = rotationSpeed;
+        
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.W))
+        {
+            curSpeed *= speedModifier;
+            curRotationSpeed *= rotationSpeedModifier;
+        }
+        
         Transform head = bodyParts[0];
-        head.Translate(head.forward*speed*Time.smoothDeltaTime,Space.World);
+        head.Translate(head.forward * (curSpeed * Time.smoothDeltaTime),Space.World);
 
         if(Input.GetAxis("Horizontal") != 0)
-            head.Rotate(Vector3.up*rotationSpeed*Time.deltaTime*Input.GetAxis("Horizontal"));
-
-        float curSpeed = speed;
+            head.Rotate(Vector3.up * (curRotationSpeed * Time.deltaTime * Input.GetAxis("Horizontal")));
 
         if (Input.GetKey(KeyCode.LeftShift))
             curSpeed *= 2;
