@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour{
     // Initializes the direction that the snake will move
     void SetDirectionRandom(){
         int dir_random = Random.Range(0, 4);
-        direction = (PlayerDirection)dir_random;
+        direction = (PlayerDirection) dir_random;
     }
 
     void InitPlayer(){
