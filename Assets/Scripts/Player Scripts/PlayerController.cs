@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour{
     [HideInInspector]
     public PlayerDirection direction;
     public static PlayerController instance;
-
     // distance that the snake moves
     [HideInInspector]
     public float step_length = 0.2f;
@@ -173,6 +172,7 @@ public class PlayerController : MonoBehaviour{
 
         if(target.tag == Tags.WALL || target.tag == Tags.BOMB || target.tag == Tags.TAIL){
             Time.timeScale = 0f;
+            GameOver.instance.Setup();
             AudioManager.instance.PlayDeathSound();
         }
     }
