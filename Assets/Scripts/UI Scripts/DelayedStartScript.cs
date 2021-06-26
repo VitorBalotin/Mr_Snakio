@@ -6,7 +6,7 @@ public class DelayedStartScript : MonoBehaviour
 {
     public GameObject countDown;
     void Start(){
-        StartCoroutine("StartDelay");
+        StartCoroutine(nameof(StartDelay));
     }
 
     void Update(){

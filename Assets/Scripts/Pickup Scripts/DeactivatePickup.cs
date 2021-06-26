@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DeactivatePickup : MonoBehaviour{
-    // Start is called before the first frame update
-    // Deactivates the pickup or bomb after 3 or 6 seconds
+    [Min(0)]
+    public float intervalMin = 0;
+    [Min(0)]
+    public float intervalMax = 0;
+    
     void Start(){
-        Invoke("Deactivate", Random.Range(3f, 6f));
+        Invoke(nameof(Deactivate), Random.Range(intervalMin, intervalMax));
     }
 
     void Deactivate(){

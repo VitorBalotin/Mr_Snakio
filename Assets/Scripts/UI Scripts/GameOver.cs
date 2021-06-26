@@ -9,7 +9,7 @@ public class GameOver : MonoBehaviour{
 
      public void Start(){
         MakeInstance();
-         deathScreen.SetActive(false);
+        deathScreen.SetActive(false);
 
     }
      void MakeInstance(){

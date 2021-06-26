@@ -1,27 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameplayController : MonoBehaviour{
     public static GameplayController instance;
     // pickups
     public GameObject fruit_pickup, bomb_pickup;
     // position x and y from the map
-    private float min_x = -6.49f, max_x = 6.49f, min_z= -2.26f, max_z = 2.26f;
-    // z position of the middle of the map
-    private float y_pos = 0f;
+    public Transform objeto1, objeto2;
+    public float posY;
+    private float minX,minZ,maxX,maxZ;
     // Text and counter for the score
     private Text score_text;
     private int score_count;
-
     public void Awake(){
         MakeInstance();
     }
     
     public void Start(){
         score_text = GameObject.Find("Score").GetComponent<Text>();
-        Invoke("StartSpawning", 0.5f);
+        Invoke(nameof(StartSpawning), 0.5f);
+        if (objeto1.position.x > objeto2.position.x)
+        {
+            minX = objeto2.position.x;
+            maxX = objeto1.position.x;
+        }
+        else
+        {
+            minX = objeto1.position.x;
+            maxX = objeto2.position.x;
+        }
+        
+        if (objeto1.position.z > objeto2.position.z)
+        {
+            minZ = objeto2.position.z;
+            maxZ = objeto1.position.z;
+        }
+        else
+        {
+            minZ = objeto1.position.z;
+            maxZ = objeto2.position.z;
+        }
     }
 
     void MakeInstance(){
@@ -37,18 +59,30 @@ public class GameplayController : MonoBehaviour{
 
     // Cancels the spawn routine
     public void CancelSpawning(){
-        CancelInvoke("StartSpawning");
+        CancelInvoke(nameof(StartSpawning));
     }
 
     IEnumerator SpawnPickUps(){
-        yield return new WaitForSeconds(Random.Range(1f, 1.5f));
-        if(Random.Range(0, 10) >= 2){
-            Instantiate(fruit_pickup, new Vector3(Random.Range(min_x, max_x), y_pos, Random.Range(min_z, max_z)), Quaternion.identity);
-        }else{
-            Instantiate(bomb_pickup, new Vector3(Random.Range(min_x, max_x), y_pos, Random.Range(min_z, max_z)), Quaternion.identity);
+        Boolean validSpawn = false;
+        GameObject nextSpawnable;
+        Vector3 coord;
+        
+        if (Random.Range(0, 10) >= 2) {
+            nextSpawnable = fruit_pickup;
+        }
+        else {
+            nextSpawnable = bomb_pickup;
         }
 
-        Invoke("StartSpawning", 0f);
+        yield return new WaitForSeconds(Random.Range(1f, 1.5f));
+        do {
+            coord = new Vector3(Random.Range(minX, maxX), posY,Random.Range(minZ, maxZ));
+            validSpawn = Physics.CheckSphere(coord, nextSpawnable.GetComponent<SphereCollider>().radius);
+        } while (!validSpawn);
+            
+        Instantiate(nextSpawnable, coord, Quaternion.identity);
+        
+        Invoke(nameof(StartSpawning), 0f);
     }
 
     // Increments the score
