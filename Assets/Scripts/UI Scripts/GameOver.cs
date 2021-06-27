@@ -18,7 +18,9 @@ public class GameOver : MonoBehaviour{
         }
     }
     public void Setup(){
+        Time.timeScale = 0f;
         deathScreen.SetActive(true);
+        AudioManager.instance.PlayDeathSound();
     }
 
     public void Restart(){
