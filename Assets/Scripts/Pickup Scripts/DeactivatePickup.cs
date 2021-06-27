@@ -15,6 +15,6 @@ public class DeactivatePickup : MonoBehaviour{
     }
 
     void Deactivate(){
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
