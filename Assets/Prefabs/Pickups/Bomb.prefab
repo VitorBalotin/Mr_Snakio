@@ -320,3 +320,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2daf1b47f49d041a5c80a8b79dd75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intervalMin: 5
+  intervalMax: 7
