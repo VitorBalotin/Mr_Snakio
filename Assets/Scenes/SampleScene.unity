@@ -511,11 +511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2160351711933007132, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000015896623
+      value: -0.000000015896623
       objectReference: {fileID: 0}
     - target: {fileID: 2160351711933007132, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000065845964
+      value: 0.0000000065845964
       objectReference: {fileID: 0}
     - target: {fileID: 3641982877175194030, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_TagString
@@ -579,11 +579,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6345883218180832886, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000015896623
+      value: -0.000000015896623
       objectReference: {fileID: 0}
     - target: {fileID: 6345883218180832886, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000065845964
+      value: 0.0000000065845964
       objectReference: {fileID: 0}
     - target: {fileID: 7576047980020420445, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_TagString
@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 867403541}
   - component: {fileID: 867403542}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Background_audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1320,12 +1320,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867403540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -824.97125, y: -279.2825, z: 5.328124}
+  m_LocalScale: {x: 0.8880207, y: 0.8880207, z: 0.8880207}
   m_Children: []
-  m_Father: {fileID: 492430259}
-  m_RootOrder: 4
+  m_Father: {fileID: 1413355806}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &867403542
 AudioSource:
@@ -2047,6 +2047,7 @@ RectTransform:
   - {fileID: 93055400}
   - {fileID: 919138613}
   - {fileID: 1332416411}
+  - {fileID: 867403541}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2081,6 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 1332416410}
+  audio_source_background: {fileID: 867403542}
 --- !u!1 &1419673969
 GameObject:
   m_ObjectHideFlags: 0
