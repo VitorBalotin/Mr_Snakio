@@ -6,11 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour{
     public static GameOver instance;
     public GameObject deathScreen;
-
+    public AudioSource audio_source_background;
      public void Start(){
         MakeInstance();
         deathScreen.SetActive(false);
-
     }
      void MakeInstance(){
         if(instance == null){
@@ -18,6 +17,7 @@ public class GameOver : MonoBehaviour{
         }
     }
     public void Setup(){
+        audio_source_background.mute = !audio_source_background.mute;
         Time.timeScale = 0f;
         deathScreen.SetActive(true);
         AudioManager.instance.PlayDeathSound();
