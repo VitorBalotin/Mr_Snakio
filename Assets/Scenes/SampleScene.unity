@@ -1850,7 +1850,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcbe638b69177d43a5d357854251913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickups: []
+  pickups:
+  - {fileID: 1829371231341652, guid: 426b44a7575f71e479fab4f4e8431989, type: 3}
+  - {fileID: 1125202155953082, guid: 573bb482e4baeec4386587db7cc07515, type: 3}
+  - {fileID: 1802840387486672, guid: 8f38e57a49b1c844081ad6bb3c553f13, type: 3}
+  - {fileID: 1541859410316496, guid: 4fe5a7bcbee1651418ea031a87ff53e4, type: 3}
   bomb_pickup: {fileID: 8556564497352175, guid: e1cc5ea89bc30e34985bf23778659466, type: 3}
   objeto1: {fileID: 77892090}
   objeto2: {fileID: 1281488340}
