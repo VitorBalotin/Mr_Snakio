@@ -64,7 +64,6 @@ public class GameplayController : MonoBehaviour{
     }
 
     IEnumerator SpawnPickUps(){
-        Boolean validSpawn = false;
         GameObject nextSpawnable;
         Vector3 coord;
         
