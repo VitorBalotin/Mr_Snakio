@@ -8,7 +8,8 @@ using Random = UnityEngine.Random;
 public class GameplayController : MonoBehaviour{
     public static GameplayController instance;
     // pickups
-    public GameObject fruit_pickup, bomb_pickup;
+    public List<GameObject> pickups;
+    public GameObject bomb_pickup;
     // position x and y from the map
     public Transform objeto1, objeto2;
     public float posY;
@@ -68,20 +69,16 @@ public class GameplayController : MonoBehaviour{
         Vector3 coord;
         
         if (Random.Range(0, 10) >= 2) {
-            nextSpawnable = fruit_pickup;
+            nextSpawnable = pickups[Random.Range(0, pickups.Count)];
         }
         else {
             nextSpawnable = bomb_pickup;
         }
 
         yield return new WaitForSeconds(Random.Range(1f, 1.5f));
-        do {
-            coord = new Vector3(Random.Range(minX, maxX), posY,Random.Range(minZ, maxZ));
-            validSpawn = Physics.CheckSphere(coord, nextSpawnable.GetComponent<SphereCollider>().radius);
-        } while (!validSpawn);
-            
+        coord = new Vector3(Random.Range(minX, maxX), posY,Random.Range(minZ, maxZ));
         Instantiate(nextSpawnable, coord, Quaternion.identity);
-        
+
         Invoke(nameof(StartSpawning), 0f);
     }
 
