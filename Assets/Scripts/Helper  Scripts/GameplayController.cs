@@ -16,7 +16,8 @@ public class GameplayController : MonoBehaviour{
     private float minX,minZ,maxX,maxZ;
     // Text and counter for the score
     private Text score_text;
-    private int score_count;
+    public int score_count;
+    private int dificulty = 20;
     public void Awake(){
         MakeInstance();
     }
@@ -84,6 +85,11 @@ public class GameplayController : MonoBehaviour{
     // Increments the score
     public void IncrementScore(){
         score_count++;
+        if(score_count == dificulty){
+            dificulty = dificulty + 20;
+            SnakeMovement.instance.speed = SnakeMovement.instance.speed + 0.2f;
+            SnakeMovement.instance.speedModifier = SnakeMovement.instance.speedModifier + 0.2f;
+        }
         score_text.text = "Score: " + score_count;
     }
 }
