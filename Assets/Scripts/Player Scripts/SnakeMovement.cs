@@ -18,9 +18,11 @@ public class SnakeMovement : MonoBehaviour {
     private float distance;
     private Transform curBodyPart;
     private Transform prevBodyPart;
+    public static SnakeMovement instance;
 
     // Start is called before the first frame update
     void Start() {
+        MakeInstance();
         for (int i = bodyParts.Count; i < beginSize; i++)
             AddBodyPart();
     }
@@ -68,5 +70,11 @@ public class SnakeMovement : MonoBehaviour {
         Transform newPart = (Instantiate(bodyPrefab, tail.position, tail.rotation) as GameObject).transform;
         newPart.SetParent(transform);
         bodyParts.Add(newPart);
+    }
+
+    void MakeInstance(){
+        if(instance == null){
+            instance = this;
+        }
     }
 }
