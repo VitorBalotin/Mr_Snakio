@@ -15,7 +15,11 @@ public class PauseController : MonoBehaviour{
     }
 
     // Update is called once per frame
-    void Update(){
+    void Update()
+    {
+        if (Time.timeScale == 0f) 
+            return;
+        
         if(Input.GetKeyDown(KeyCode.Escape)){
             if(game_paused == true){
                 Resume();
