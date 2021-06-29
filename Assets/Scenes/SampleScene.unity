@@ -883,6 +883,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1000158125370845044, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301866356965509412, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951893724796166239, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: beginSize
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2160351711933007132, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.12670615
@@ -905,15 +917,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2160351711933007132, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015896623
+      value: 0.000000015896623
       objectReference: {fileID: 0}
     - target: {fileID: 2160351711933007132, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000065845964
+      value: -0.0000000065845964
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380990356815025082, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: m_MotionVectors
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380990356815025082, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 2703326665948780501, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: m_MotionVectors
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767121307805061396, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: m_MotionVectors
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3641982877175194030, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_TagString
       value: Tail
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014901937341750044, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5642227990903136321, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_RootOrder
@@ -960,6 +992,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6345883218180832886, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.12670615
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345883218180832886, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.39574516
       objectReference: {fileID: 0}
@@ -973,11 +1009,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6345883218180832886, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015896623
+      value: 0.000000015896623
       objectReference: {fileID: 0}
     - target: {fileID: 6345883218180832886, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000065845964
+      value: -0.0000000065845964
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088011382688080887, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7576047980020420445, guid: b4fa81765e974c144bd656f9aaf64fda, type: 3}
       propertyPath: m_TagString
